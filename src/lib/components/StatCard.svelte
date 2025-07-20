@@ -3,7 +3,7 @@
 	export let value: string | number;
 </script>
 
-<div class="card">
-	<p style="color: #666; font-size: 0.9rem;">{title}</p>
-	<p style="font-size: 1.5rem; font-weight: bold;">{value}</p>
+<div class="bg-white p-4 rounded-lg shadow">
+	<p class="text-gray-600 text-sm">{title}</p>
+	<p class="text-xl font-bold">{value}</p>
 </div>

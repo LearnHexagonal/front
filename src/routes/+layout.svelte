@@ -1,73 +1,38 @@
 <script>
+	import { page } from '$app/stores';
 	import '$lib/styles/global.css';
+
+	$: pathname = $page.url.pathname;
+	let user = '홍길동';
 </script>
 
-<header class="header">
-	<div class="header-left">
-		<span class="logo">📚</span>
-		<span class="project-name">project-name</span>
+<header class="flex justify-between items-center px-8 py-4 bg-white shadow">
+	<div class="flex items-center gap-2">
+		<span class="text-xl">📚</span>
+		<span class="font-bold text-lg">project-name</span>
 	</div>
-	<nav class="menu">
-		<a href="/">대시보드</a>
-		<a href="/learn">학습하기</a>
+	<nav class="flex gap-4 text-gray-600">
+		<a
+			href="/"
+			class="px-4 py-2 rounded text-sm font-medium
+				{pathname === '/' ? 'bg-black text-white' : 'text-gray-600 hover:bg-gray-100'}"
+		>
+			대시보드
+		</a>
+		<a
+			href="/learn"
+			class="px-4 py-2 rounded text-sm font-medium
+				{pathname.startsWith('/learn') ? 'bg-black text-white' : 'text-gray-600 hover:bg-gray-100'}"
+		>
+			학습하기
+		</a>
 	</nav>
-	<div class="profile">
-		<div class="profile-dot"></div>
-		<span class="profile-name">홍길동</span>
+	<div class="flex items-center gap-2">
+		<div class="w-8 h-8 rounded-full bg-gray-300"></div>
+		<span>{user}</span>
 	</div>
 </header>
 
-<main>
+<main class="relative z-0 mx-auto mt-6 w-full max-w-7xl px-4 lg:px-0">
 	<slot />
 </main>
-
-<style>
-	.header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 1rem 2rem;
-		background: #fff;
-		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-	}
-
-	.header-left {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-	}
-
-	.logo {
-		font-size: 1.4rem;
-	}
-
-	.profile {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-	}
-
-	.profile-dot {
-		width: 32px;
-		height: 32px;
-		border-radius: 50%;
-		background-color: #ddd;
-	}
-
-	.project-name {
-		font-weight: bold;
-		font-size: 1.2rem;
-	}
-
-	.menu a {
-		margin-left: 1rem;
-		padding: 0.5rem 1rem;
-		text-decoration: none;
-		color: #666;
-		border-radius: 4px;
-	}
-
-	.menu a:hover {
-		background: #eee;
-	}
-</style>
