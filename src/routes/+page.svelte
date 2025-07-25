@@ -16,7 +16,7 @@
 			time: '2025-07-18T21:00:00',
 			points: 150,
 			progress: null,
-			icon: 'check.png'
+			icon: 'check'
 		},
 		{
 			title: '이벤트 핸들링',
@@ -24,7 +24,7 @@
 			time: '2025-07-16T09:00:00',
 			points: null,
 			progress: null,
-			icon: 'play.png'
+			icon: 'play'
 		},
 		{
 			title: '컴포넌트 기초 퀴즈',
@@ -32,7 +32,7 @@
 			time: '2025-07-15T09:00:00',
 			points: 200,
 			progress: '9/10',
-			icon: 'star.png'
+			icon: 'star'
 		}
 	];
 

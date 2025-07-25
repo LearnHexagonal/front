@@ -17,7 +17,7 @@
 
 <li class="flex justify-between items-center bg-gray-50 rounded-lg px-4 py-3">
 	<div class="flex gap-3 items-center">
-		<img src={`/icons/${icon}`} alt="" class="w-6 h-6" />
+		<img src={`/icons/${icon}.png`} alt="" class="w-6 h-6" />
 		<div class="flex-1">
 			<p class="text-sm font-medium text-gray-800">{title}</p>
 			<p class="text-xs text-gray-500 mt-0.5">{category}</p>
