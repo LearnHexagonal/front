@@ -2,6 +2,8 @@
 	import StatCard from '$lib/components/StatCard.svelte';
 	import RecentActivityCard from '$lib/components/RecentActivityCard.svelte';
 	import TodoCard from '$lib/components/TodoCard.svelte';
+	import AchievementCard from '$lib/components/AchievementCard.svelte';
+	import QuickActionList from '$lib/components/QuickActionList.svelte';
 
 	export let data: {
 		user: { name: string };
@@ -25,9 +27,17 @@
 			dueDate: string;
 			level: 'low' | 'medium' | 'high';
 		}[];
+		achievements: {
+			icon: string;
+			title: string;
+			description: string;
+			progress: { current: number; total: number };
+			completedAt: string | null;
+			achieved: boolean;
+		}[];
 	};
 
-	const { user, stats, recentActivities, todoItems } = data;
+	const { user, stats, recentActivities, todoItems, achievements } = data;
 </script>
 
 <div class="w-full min-w-0 flex-auto lg:static lg:max-h-full lg:overflow-visible">
@@ -48,8 +58,8 @@
 
 		<div class="my-8 flex flex-col gap-x-7 gap-y-10 md:flex-row">
 			<div class="flex-[7] flex flex-col gap-7">
-				<div class="rounded-xl bg-white border border-gray-200 p-6 shadow-sm">이번 주 학습현황</div>
-				<div class="rounded-xl bg-white border border-gray-200 p-6 shadow-sm">
+				<div class="rounded-xl bg-white border p-6 shadow-sm">이번 주 학습현황</div>
+				<div class="rounded-xl bg-white border p-6 shadow-sm">
 					<h2 class="text-xl font-semibold mb-4">최근 활동</h2>
 					<ul class="space-y-4">
 						{#each recentActivities as activity}
@@ -58,9 +68,7 @@
 								category={activity.category}
 								time={activity.time}
 								points={activity.points}
-								progress={activity.progress
-									? `${activity.progress.current}/${activity.progress.total}`
-									: null}
+								progress={activity.progress}
 								icon={activity.icon}
 							/>
 						{/each}
@@ -68,21 +76,35 @@
 				</div>
 			</div>
 			<div class="flex-[3] flex flex-col gap-7">
-				<div class="rounded-xl bg-white border border-gray-200 p-6 shadow-sm">
+				<div class="rounded-xl bg-white border p-6 shadow-sm">
 					<h2 class="text-xl font-semibold mb-4">할 일</h2>
 					<ul class="space-y-4">
-						{#each todoItems as item}
+						{#each todoItems as todo}
 							<TodoCard
-								title={item.title}
-								category={item.category}
-								date={item.dueDate}
-								level={item.level}
+								title={todo.title}
+								category={todo.category}
+								date={todo.dueDate}
+								level={todo.level}
 							/>
 						{/each}
 					</ul>
 				</div>
-				<div class="rounded-xl bg-white border border-gray-200 p-6 shadow-sm">성취도</div>
-				<div class="rounded-xl bg-white border border-gray-200 p-6 shadow-sm">빠른실행</div>
+				<div class="rounded-xl bg-white border p-6 shadow-sm">
+					<h2 class="text-xl font-semibold mb-4">성취도</h2>
+					<ul class="space-y-3">
+						{#each achievements as achievement}
+							<AchievementCard
+								icon={achievement.icon}
+								title={achievement.title}
+								description={achievement.description}
+								progress={achievement.progress}
+								completedAt={achievement.completedAt}
+								achieved={achievement.achieved}
+							/>
+						{/each}
+					</ul>
+				</div>
+				<QuickActionList />
 			</div>
 		</div>
 	</div>

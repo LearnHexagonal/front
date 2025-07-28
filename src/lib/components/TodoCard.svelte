@@ -18,8 +18,8 @@
 >
 	<div class="flex-1">
 		<p class="text-sm font-medium text-gray-800">{title}</p>
-		<p class="text-xs text-gray-500">{category}</p>
-		<p class="text-xs text-gray-500">{date}</p>
+		<p class="text-xs text-gray-500 mt-2">{category}</p>
+		<p class="text-xs text-gray-500 mt-0.5">{date}</p>
 	</div>
 	<span
 		class={`ml-4 self-start px-2 py-0.5 text-xs font-semibold rounded-full ${getLevelClasses(level)}`}

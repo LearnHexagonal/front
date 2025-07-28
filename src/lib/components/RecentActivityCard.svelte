@@ -10,7 +10,7 @@
 	export let category: string;
 	export let time: string;
 	export let points: number | null = null;
-	export let progress: string | null = null;
+	export let progress: { current: number; total: number } | null = null;
 	export let icon: string;
 
 	$: timeAgo = dayjs(time).fromNow();
@@ -31,7 +31,7 @@
 			<p class="text-blue-500">+{points}점</p>
 		{/if}
 		{#if progress}
-			<p class="text-green-600">{progress}</p>
+			<p class="text-green-600">{progress.current}/{progress.total}</p>
 		{/if}
 	</div>
 </li>

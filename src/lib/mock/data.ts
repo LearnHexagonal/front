@@ -11,7 +11,7 @@ export const mockRecentActivities = [
 	{
 		title: '상태 관리 이해하기',
 		category: 'Svelte 기초',
-		time: '2025-07-18T21:00:00',
+		time: '2025-07-18',
 		points: 150,
 		progress: null,
 		icon: 'check'
@@ -19,7 +19,7 @@ export const mockRecentActivities = [
 	{
 		title: '이벤트 핸들링',
 		category: 'Svelte 기초',
-		time: '2025-07-16T09:00:00',
+		time: '2025-07-16',
 		points: null,
 		progress: null,
 		icon: 'play'
@@ -27,7 +27,7 @@ export const mockRecentActivities = [
 	{
 		title: '컴포넌트 기초 퀴즈',
 		category: 'Svelte 기초',
-		time: '2025-07-15T09:00:00',
+		time: '2025-07-15',
 		points: 200,
 		progress: {
 			current: 9,
@@ -55,5 +55,40 @@ export const mockTodoItems = [
 		category: 'Svelte 실습',
 		dueDate: '2025-07-28',
 		level: 'low'
+	}
+];
+
+export const mockAchievements = [
+	{
+		icon: '🎯',
+		title: '첫 걸음',
+		description: '첫 번째 강의 완료',
+		progress: { current: 1, total: 1 },
+		completedAt: '2025-01-15',
+		achieved: true
+	},
+	{
+		icon: '🔥',
+		title: '연속 학습자',
+		description: '7일 연속 학습',
+		progress: { current: 7, total: 7 },
+		completedAt: '2025-01-20',
+		achieved: true
+	},
+	{
+		icon: '🧠',
+		title: '퀴즈 마스터',
+		description: '퀴즈 10개 완료',
+		progress: { current: 7, total: 10 },
+		completedAt: null,
+		achieved: false
+	},
+	{
+		icon: '⚡',
+		title: '코드 닌자',
+		description: '100개 코드 예제 실행',
+		progress: { current: 67, total: 100 },
+		completedAt: null,
+		achieved: false
 	}
 ];
