@@ -2,14 +2,15 @@
 	import dayjs from 'dayjs';
 	import relativeTime from 'dayjs/plugin/relativeTime';
 	import 'dayjs/locale/ko';
-	dayjs.locale('ko');
 
+	dayjs.locale('ko');
 	dayjs.extend(relativeTime);
+
 	export let title: string;
 	export let category: string;
 	export let time: string;
-	export let points: number | null;
-	export let progress: string | null;
+	export let points: number | null = null;
+	export let progress: string | null = null;
 	export let icon: string;
 
 	$: timeAgo = dayjs(time).fromNow();

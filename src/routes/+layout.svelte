@@ -1,9 +1,13 @@
-<script>
+<script lang="ts">
 	import { page } from '$app/stores';
 	import '$lib/styles/global.css';
 
+	export let data: {
+		user: { name: string };
+	};
+
+	const user = data.user;
 	$: pathname = $page.url.pathname;
-	let user = '홍길동';
 </script>
 
 <header class="flex justify-between items-center px-8 py-4 bg-white shadow">
@@ -29,10 +33,10 @@
 	</nav>
 	<div class="flex items-center gap-2">
 		<div class="w-8 h-8 rounded-full bg-gray-300"></div>
-		<span>{user}</span>
+		<span>{user.name}</span>
 	</div>
 </header>
 
-<main class="relative z-0 mx-auto mt-6 w-full max-w-7xl px-4 lg:px-0">
+<main class="relative z-0 mx-auto mt-6 w-full max-w-7xl px-4 xl:px-0">
 	<slot />
 </main>

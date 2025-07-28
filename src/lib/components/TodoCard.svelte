@@ -2,9 +2,9 @@
 	export let title: string;
 	export let category: string;
 	export let date: string;
-	export let level: string;
+	export let level: 'low' | 'medium' | 'high';
 
-	function getLevelClasses(level: string) {
+	function getLevelClasses(level: 'low' | 'medium' | 'high') {
 		if (level === 'high') return 'bg-red-100 text-red-700';
 		if (level === 'medium') return 'bg-yellow-100 text-yellow-800';
 		if (level === 'low') return 'bg-green-100 text-green-700';
@@ -14,7 +14,7 @@
 
 <li
 	class="flex justify-between items-start rounded-lg border border-gray-200 px-4 py-3
-    bg-white shadow-sm"
+    bg-white shadow-sm hover:bg-gray-100 hover:shadow-none transition"
 >
 	<div class="flex-1">
 		<p class="text-sm font-medium text-gray-800">{title}</p>
